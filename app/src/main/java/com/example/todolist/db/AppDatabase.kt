@@ -11,7 +11,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun getTodoDao() : TodoDao
 
     companion object {
-        val databaseName = "db_todo" 
+        val databaseName = "db_todo"
         var appDatabase : AppDatabase? = null
 
         fun getInstance(context : Context) : AppDatabase? {
