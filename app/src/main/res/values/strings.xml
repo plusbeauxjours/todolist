@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TodoList</string>
+    <string name="btn_add_todo">할 일 추가하기</string>
 </resources>
