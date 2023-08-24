@@ -1,5 +1,6 @@
 package com.example.todolist
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -28,6 +29,11 @@ class MainActivity : AppCompatActivity() {
         todoDao = db.getTodoDao()
 
         getAllTodoList()
+
+        binding.btnAddTodo.setOnClickListener {
+            val intent = Intent(this, AddTodoActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun getAllTodoList(){
