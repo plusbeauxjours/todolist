@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.todolist.databinding.ItemTodoBinding
 import com.example.todolist.db.TodoEntity
 
-class TodoRecyclerViewAdapter (private val todoList: ArrayList<TodoEntity>): RecyclerView.Adapter<TodoRecyclerViewAdapter.MyViewHolder>(){
+class TodoRecyclerViewAdapter (private val todoList: ArrayList<TodoEntity>, private val listener: OnItemLongClickListener): RecyclerView.Adapter<TodoRecyclerViewAdapter.MyViewHolder>(){
     inner class MyViewHolder(binding : ItemTodoBinding): RecyclerView.ViewHolder(binding.root){
         val tv_importance = binding.tvImportance
         val tv_title = binding.tvTitle
@@ -42,5 +42,10 @@ class TodoRecyclerViewAdapter (private val todoList: ArrayList<TodoEntity>): Rec
         holder.tv_importance.text = todoData.importance.toString()
         holder.tv_title.text = todoData.title.toString()
 
+        holder.root.setOnLongClickListener{
+            listener.onLongClick(position)
+//            false는 다른 click event도 실행, true는 오직 long click event만 실행
+            false
+        }
     }
 }
